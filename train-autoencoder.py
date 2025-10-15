@@ -8,8 +8,8 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 from PIL import Image
 
 # Parameters
-train_data_dir = "data/tomato/train"
-val_data_dir = "data/tomato/val"
+train_data_dir = "data/VincentVanGogh/train"
+val_data_dir = "data/VincentVanGogh/val"
 batch_size = 300
 num_epochs = 1000
 initial_lr = 1e-3
@@ -171,7 +171,7 @@ def train_model():
         
         # Save checkpoint every save_every epochs
         if epoch % save_every == 0:
-            checkpoint_path = f"./checkpoints/checkpoint_epoch_{epoch}.pth"
+            checkpoint_path = f"./model_checkpoints/checkpoint_epoch_{epoch}.pth"
             torch.save({
                 'epoch': epoch,
                 'model_state_dict': model.state_dict(),
@@ -185,7 +185,7 @@ def train_model():
         # Save best model
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            torch.save(model.state_dict(), "best_model.pth")
+            torch.save(model.state_dict(), "best_vangogh_model.pth")
             print("Saved new best model!")
 
 if __name__ == "__main__":

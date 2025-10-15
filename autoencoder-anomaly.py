@@ -273,8 +273,8 @@ def process_directory(directory_path, model, device, max_images=10):
 
 def main():
     # Set paths
-    model_path = "best_model.pth"
-    image_path = "tomato_val"
+    model_path = "best_vangogh_model.pth"
+    image_path = "vangogh_val"
     
     # Verify paths
     print(f"Checking paths...")
